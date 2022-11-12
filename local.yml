@@ -5,9 +5,14 @@
 
 
   tasks: 
-  - name: install packages
+  - name: install basic packages
     package: 
       name:
         - htop
         - tmux
         - vim-nox
+        - thunderbird
+
+  - name: configure iptables rules using custom config
+    command: iptables-restore ./files/iptables.conf
+    become: yes
